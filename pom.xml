@@ -11,6 +11,21 @@
     <groupId>com.example</groupId>
     <artifactId>springboot-thymeleaf-demo</artifactId>
     <version>1.0</version>
+    <repositories>
+        <!-- 1. 로컬 디렉토리 저장소 (두 번째로 검색) -->
+        <repository>
+            <id>project-local-repo</id>
+            <url>file://${project.basedir}/lib</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+
+        <!-- 2. 원격 저장소 (세 번째로 검색) -->
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -19,6 +34,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>my.util</groupId>
+            <artifactId>mylib</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <build>
